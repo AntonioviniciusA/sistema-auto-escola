@@ -1,0 +1,152 @@
+
+.sidebar {
+  display: flex;
+  width: 5rem; 
+  transition: width 0.3s;
+  z-index: 1;
+}
+
+.sidebar.open {
+  height: max-content;
+  width: 18rem; 
+  margin: 1%;
+}
+
+.sidebar-container {
+  height: 100%;
+  width: 70%;
+  margin-top: 5%;
+  margin-left: 5%;
+
+  background-color: #0A0A0A ; 
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transition: all 0.3s;
+  border-top: solid 3px var(--details) ;
+  border-radius: 15px;
+}
+
+
+.logo-placeholder img{
+  width: 65px;
+}
+
+.sidebar-container.open{
+  border-radius: 1rem;
+
+}
+
+.sidebar-container.open .menu-item {
+  border-radius: 1rem 1rem 0rem 0rem;
+  border-bottom: var(--white) solid 1px;
+}
+
+.sidebar-container.closed {
+  border-radius: 1rem;
+  border: none;
+}
+
+/* Logo */
+.logo-container {
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container.open h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.logo-container.closed .logo-placeholder {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+/* Botão de abrir/fechar a sidebar */
+.button {
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* Estilo do menu */
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: start;
+  padding: 0.75rem 5px;
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 5%;
+  transition: transform 0.3s ease; 
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+
+.menu-item-label {
+  margin-left: 0.75rem;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.menu-item .icon {
+  width: 1.50rem;
+  height: 1.50rem;
+}
+
+/* Estilos para os botões de Login/Logout */
+
+
+.auth-button {
+  width: 80%;
+  padding: 0.75rem;
+  gap: 0;
+  border-radius: 0.5rem;
+  background-color: #4a5568; /* Cor de fundo */
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto; width: 100%;
+}
+
+.auth-button:hover {
+  background-color: #2d3748; /* Cor ao passar o mouse */
+}
+
+/* Ajustando ícones nos botões quando a sidebar estiver fechada */
+.auth-button svg {
+  display: block;
+  margin: 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.auth-button span {
+  display: none;
+}
+
+.sidebar.open .auth-button span {
+  display: inline-block;
+}

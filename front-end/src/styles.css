@@ -1,0 +1,158 @@
+:root {
+  /* Cores Geral: */
+  --white: #fff;
+  --details: #facb23;
+  --inputbgc: #212121;
+  --bckgroundgeral: #212121;
+  --cardsbackground: #1f1f1f;
+
+  /* Cores Página Alunos: */
+  --tb-border: #ccc;
+  --text-color: #ccc;
+  --tb-titles-bgc: rgba(68, 68, 68, 0.411);
+  --tb-hover-line: #202020;
+  --tb-line: rgba(0, 0, 0, 0.411);
+
+  /* Cores Página de login: */
+  --cnt-login-bgc: #292929;
+  --cnt-age-bgc: #292929;
+  --cnt-login-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1f1f1f;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* focus input global */
+#input-fc:focus {
+  color: var(--white);
+  background-color: var(--inputbgc);
+  outline-color: #ffee00;
+  box-shadow: -3px -3px 15px #ffee00;
+  transition: 0.1s;
+  transition-property: box-shadow;
+}
+
+.main-content {
+  flex: 1;
+  padding: 10px;
+  background-color: #0a0a0a;
+  height: 90vh;
+  border-radius: 1.2rem;
+  margin: 2%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  overflow-y: auto;
+}
+
+.main-content h1 {
+  font-size: 28px;
+
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--white);
+}
+
+.container-bg {
+  padding: 10px;
+  background-color: #212121;
+  border-radius: 20px;
+  height: 98%;
+  color: var(--white);
+}
+
+/* Posição do botão de Filtro ao lado do input de Pesquisa */
+.position-search-filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* scrollbar custom */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--details);
+  border-radius: 10px;
+}
+
+.sidebar-pc {
+  display: block;
+}
+.sidebar-mob {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .main-content {
+    padding: 0;
+    background-color: #0a0a0a;
+    height: 100vh;
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .sidebar-pc {
+    display: none;
+  }
+  .sidebar-mob {
+    display: block;
+  }
+
+  /* Reponsividade para a Barra de pesquisa*/
+  .ctn-position-search {
+    margin: 0 auto;
+  }
+  .input {
+    width: 285px;
+  }
+  .cadastro-aluno .header {
+    margin-bottom: 25px;
+  }
+  .cadastrar-btn {
+    margin: 0 auto;
+    margin-top: 17px;
+    width: 40%;
+  }
+
+  .btn-schedule {
+    margin: 0 auto;
+    width: 40%;
+  }
+
+  .position-search-filter{
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .btn-filter{
+    margin-top: 8px;
+  }
+
+  .dropdown-container{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}

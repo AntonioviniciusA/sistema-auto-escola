@@ -1,0 +1,29 @@
+.unauthorized-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8d7da;
+  color: #721c24;
+  text-align: center;
+}
+
+.unauthorized-container h1 {
+  font-size: 3rem;
+}
+
+.unauthorized-container p {
+  font-size: 1.2rem;
+}
+
+.unauthorized-container a {
+  font-size: 1.1rem;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.unauthorized-container a:hover {
+  text-decoration: underline;
+}

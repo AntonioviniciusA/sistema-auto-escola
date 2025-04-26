@@ -1,0 +1,42 @@
+.butonexcluir {
+  background-color: red;
+  width: 100px;
+}
+
+.table-alunos table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.table-alunos th,
+.table-alunos td {
+  border: 1px solid var(--tb-border);
+  color: var(--text-color);
+
+  padding: 12px;
+  text-align: left;
+}
+
+.table-alunos th {
+  background: var(--tb-titles-bgc);
+
+  font-weight: bold;
+}
+
+.table-alunos tbody tr:hover {
+  background-color: var(--tb-hover-line);
+}
+
+tr:nth-of-type(2n + 0) {
+  background: var(--tb-line);
+}
+
+td.exitbuton {
+  width: 5%;
+  text-align: center;
+}
+
+.hdr-details {
+  display: flex;
+  gap: 15px;
+}
