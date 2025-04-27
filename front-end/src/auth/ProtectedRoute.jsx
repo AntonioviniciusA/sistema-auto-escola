@@ -5,17 +5,16 @@ import LoadingPage from "../Components/Loading";
 
 const ProtectedRoute = ({ requiredRole }) => {
   const { user } = useAuth();
-  const [loading, setLoading] = useState(true); // Estado de carregamento
+  const [loading, setLoading] = useState(true);
   const levelAuth = localStorage.getItem("levelAuth");
+
   useEffect(() => {
-    // Simula um atraso na verificação da autenticação
     const checkAuth = async () => {
-      // A autenticação está sendo verificada aqui
       setLoading(false);
     };
 
     checkAuth();
-  }, []); // O useEffect é executado uma vez quando o componente é montado
+  }, []);
 
   if (loading) {
     return <LoadingPage />;
@@ -25,7 +24,12 @@ const ProtectedRoute = ({ requiredRole }) => {
     return <Navigate to="/" replace />;
   }
 
-  if (requiredRole && levelAuth !== requiredRole) {
+  // Verificar se 'requiredRole' é um array e se o 'levelAuth' está na lista de papéis
+  const hasRequiredRole = Array.isArray(requiredRole)
+    ? requiredRole.includes(levelAuth)
+    : levelAuth === requiredRole;
+
+  if (requiredRole && !hasRequiredRole) {
     return <Navigate to="/unauthorized" replace />;
   }
 

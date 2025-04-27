@@ -1,83 +1,74 @@
 /* Sidebar Móvel */
 .sidebarMob {
-    position: fixed;
-    top: 100%;
-    left: 0;
-    width: 98%;
-    height: fit-content;
-    transition: transform 0.3s ease-in-out;
-    transform: translateY(-100%);
-    z-index: 10;
-  }
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  transform: translateY(-100%);
+  display: flex;
+  z-index: 10;
+}
 
-  .sidebarMob .sidebar-container {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height:50px;
-    padding: 5px;
-    color: white;
-    overflow: hidden;
-    margin: 0;
-    gap: 16%;
-  }
-  
-  .sidebarMob .logo-container {
-    width: fit-content;
-    display: flex;
-    justify-content: left;
-    margin-bottom: 20px;
-  }
-  
-  .sidebarMob .logo-placeholder img {
-    width: 80px;
-    height: auto;
-  }
-  
-  .sidebarMob .menu-items-container {
-    justify-content: center;
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20%;
-  }
-  
-  .sidebarMob .menu-item {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .sidebarMob .menu-item .icon {
-    margin-right: 10px;
-    width: max-content;
-  }
-  .sidebarMob .auth-buttons {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    gap:35%;
-  }
-  
-  .sidebarMob .auth-button {
-    background-color: transparent;
-    height: fit-content;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    margin: 10px 0;
-  }
-  
-  .sidebarMob .auth-button:hover {
-    background-color: var(--details);
-  }
-  
+.sidebarMob .sidebar-container {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  width: 100vh;
+  border-bottom: solid 2px var(--details);
+  border-radius: 20px;
+  height: 50px;
+  color: white;
+  overflow: hidden;
+  margin: 10px 0px;
+  padding: 5px 0px;
+  gap: 5%;
+  z-index: 10;
+}
 
+.sidebarMob .logo-container {
+  width: fit-content;
+  display: flex;
+  justify-content: left;
+}
 
-  
+.sidebarMob .menu-items-container {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  color: white;
+  overflow: hidden;
+  margin: 0;
+  gap: 5%;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sidebarMob .menu-item {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebarMob .menu-item .icon {
+  width: max-content;
+}
+
+.sidebarMob .auth-button {
+  background-color: transparent;
+  height: fit-content;
+  width: fit-content;
+  color: white;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+}

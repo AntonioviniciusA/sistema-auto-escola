@@ -16,7 +16,9 @@ const FiltroPesquisa = ({ setFiltros }) => {
   useEffect(() => {
     const fetchAlunos = async () => {
       try {
-        const response = await axios.get("https://sistemaautoescola.onrender.com/api/alunos");
+        const response = await axios.get(
+          "https://sistemaautoescola.onrender.com/api/alunos"
+        );
         setAlunos(response.data);
       } catch (error) {
         console.error("Erro ao buscar alunos:", error);
@@ -67,30 +69,6 @@ const FiltroPesquisa = ({ setFiltros }) => {
           value={filtros.data}
           onChange={handleChange}
         />
-
-        <label>Aluno:</label>
-        <select id="aluno" value={filtros.aluno} onChange={handleChange}>
-          <option value="">Selecione o Aluno</option>
-          {alunos.map((aluno) => (
-            <option key={aluno._id} value={aluno._id}>
-              {aluno.nome}
-            </option>
-          ))}
-        </select>
-
-        <label>Instrutor:</label>
-        <select
-          id="instrutor"
-          value={filtros.instrutor}
-          onChange={handleChange}
-        >
-          <option value="">Selecione o Instrutor</option>
-          {instrutores.map((instrutor) => (
-            <option key={instrutor._id} value={instrutor._id}>
-              {instrutor.usuario}
-            </option>
-          ))}
-        </select>
 
         <div className="dropdown-buttons">
           <button

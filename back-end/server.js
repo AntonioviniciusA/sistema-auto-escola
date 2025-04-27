@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 require("./models/instrutoresModels");
 require("./models/aulaModels");
 require("./models/AlunosModels.js");
+require("./models/pagamentoModels.js");
 const cors = require("cors");
 const helmet = require("helmet"); // Para aumentar a segurança com headers HTTP
 const rateLimit = require("express-rate-limit"); // Para proteger contra ataques de força bruta
@@ -40,31 +41,54 @@ app.use(
   })
 );
 
+app.use((err, req, res, next) => {
+  console.error("Erro não tratado:", err);
+  res.status(500).json({
+    message: "Erro interno do servidor",
+    error: err.message,
+  });
+});
+
 // Limitar requisições para proteger contra ataques de força bruta
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100, // Limite de 100 requisições por IP
+  windowMs: 5 * 60 * 1000, // 5 minutos
+  max: 500, // Limite de 100 requisições por IP
   message: "Muitas requisições de um único IP. Tente novamente mais tarde.",
 });
 app.use(limiter);
 
 // Middleware para exibir os headers da requisição (para debug)
-app.use((req, res, next) => {
-  console.log("Request Headers:", req.headers);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log("Request Headers:", req.headers);
+//   next();
+// });
+// app.use((req, res, next) => {
+//   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+//   if (req.body) console.log("Body:", JSON.stringify(req.body, null, 2));
+//   next();
+// });
 
 // Importação de rotas e middleware
 const userRoutes = require("./routes/userRoutes.js");
 const alunosRoutes = require("./routes/alunosRoutes.js");
 const aulasRoutes = require("./routes/aulaRoutes.js");
 const instrutorRoutes = require("./routes/instrutoresRoutes.js");
+const despesasRoutes = require("./routes/despesaRoutes.js");
+const pagamentosRoutes = require("./routes/pagamentoRoutes.js");
+const veiculosRoutes = require("./routes/veiculosRoutes.js");
+const performance = require("./performance/performance");
+const systemRouter = require("./routes/system");
 
 // Definição de rotas
 app.use("/api/user", userRoutes); // Rota pública de usuários
 app.use("/api/alunos", alunosRoutes);
 app.use("/api/aula", aulasRoutes);
 app.use("/api/instrutores", instrutorRoutes);
+app.use("/api/despesas", despesasRoutes);
+app.use("/api/pagamentos", pagamentosRoutes);
+app.use("/api/veiculos", veiculosRoutes);
+app.use("/api/performance", performance);
+app.use("/api/system", systemRouter);
 
 // Teste de status do servidor
 const authenticateToken = require("./middleware/authJWT");

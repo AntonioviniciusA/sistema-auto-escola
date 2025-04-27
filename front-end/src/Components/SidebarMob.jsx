@@ -3,72 +3,46 @@ import {
   FaCalendarAlt,
   FaBell,
   FaUserPlus,
-  FaSignOutAlt,
-  FaRegistered,
-} from "react-icons/fa"; // Importando os ícones da react-icons
+  FaCoins,
+} from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import "./SidebarMob.css";
+import ModalLogout from "../Components/ModalLogout";
 
 const SidebarMob = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para verificar se o usuário está logado
+  const [modalAberto, setModalAberto] = useState(false);
   const navigate = useNavigate();
 
-  const handleLoginLogout = () => {
-    setIsLoggedIn(!isLoggedIn); // Alterna o estado de login/logout
-    localStorage.clear(); // Limpa o localStorage
+  const handleLogoutConfirm = () => {
+    localStorage.clear();
     window.location.reload();
     navigate("/");
   };
 
-  const handleRegister = () => {
-    navigate("/register");
-  };
+  const abrirModal = () => setModalAberto(true);
+  const fecharModal = () => setModalAberto(false);
 
-  const menuItems = [
-    {
-      icon: <FaUserPlus className="icon" size={60} />,
-      label: "Cadastro Aluno",
-      path: "/Alunos",
-    },
-    {
-      icon: <FaCalendarAlt className="icon" size={60} />,
-      label: "Aula",
-      path: "/aulas",
-    },
-    {
-      icon: <FaBell className="icon" size={60} />,
-      label: "Notificações",
-      path: "/Notificacao",
-    },
+  const menuItemsmob = [
+    { icon: <FaUserPlus size={20} />, path: "/Alunos" },
+    { icon: <FaCalendarAlt size={20} />, path: "/aulas" },
+    { icon: <FaCoins size={20} />, path: "/dashboard-financeiro"},
+    // { icon: <FaBell size={20} />, path: "/Notificacao" },
   ];
 
   return (
-    <div className="sidebarMob">
+    <div className="sidebarMob" id="no-print">
       <div className="sidebar-container">
-        {/* Logo */}
-
         <div className="menu-items-container">
-          {menuItems.map((item, index) => (
+          {menuItemsmob.map((item, index) => (
             <Link to={item.path} key={index} className="menu-item">
               {item.icon}
             </Link>
           ))}
         </div>
-
-        {/* Botões de Login/Logout */}
-        <div className="auth-buttons">
-          <Button className="auth-button" onClick={handleLoginLogout}>
-            <FaSignOutAlt size={60} />
-          </Button>
-
-          {/* Botão de Registro */}
-
-          <Button className="auth-button" onClick={handleRegister}>
-            <FaRegistered size={60} />
-          </Button>
-        </div>
       </div>
+
+     
     </div>
   );
 };

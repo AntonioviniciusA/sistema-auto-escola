@@ -1,48 +1,69 @@
-
 .sidebar {
   display: flex;
-  width: 5rem; 
+  width: 5rem;
   transition: width 0.3s;
   z-index: 1;
+  height: 100vh;
+}
+
+.footerside {
+  margin-top: auto;
 }
 
 .sidebar.open {
-  height: max-content;
-  width: 18rem; 
-  margin: 1%;
+  width: 18rem;
+  height: 100vh; /* Mantenha a altura consistente */
 }
 
 .sidebar-container {
-  height: 100%;
+  height: 98%;
   width: 70%;
-  margin-top: 5%;
-  margin-left: 5%;
-
-  background-color: #0A0A0A ; 
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: #030303;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.5rem;
+  padding: 3%;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   transition: all 0.3s;
-  border-top: solid 3px var(--details) ;
   border-radius: 15px;
 }
 
-
-.logo-placeholder img{
+.logo-placeholder img {
   width: 65px;
 }
 
-.sidebar-container.open{
-  border-radius: 1rem;
+.logo-placeholderpc img {
+  width: 50%;
+  margin: 0;
+}
 
+.container-logo-pc {
+  /* background-color: aqua; */
+  margin: 0;
+}
+
+.container-logo-pc h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.logo-placeholderpc {
+  /* background-color: red; */
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-container.open {
+  border-radius: 1rem;
 }
 
 .sidebar-container.open .menu-item {
-  border-radius: 1rem 1rem 0rem 0rem;
-  border-bottom: var(--white) solid 1px;
+  border-bottom: var(--white) solid 1px ;
 }
 
 .sidebar-container.closed {
@@ -92,13 +113,12 @@
   text-decoration: none;
   cursor: pointer;
   margin-top: 5%;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .menu-item:hover {
   transform: translateY(-5px);
 }
-
 
 .menu-item-label {
   margin-left: 0.75rem;
@@ -107,12 +127,11 @@
 }
 
 .menu-item .icon {
-  width: 1.50rem;
-  height: 1.50rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* Estilos para os botões de Login/Logout */
-
 
 .auth-button {
   width: 80%;
@@ -124,11 +143,11 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease; 
-   display: flex;
+  transition: background-color 0.3s ease;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: auto; width: 100%;
+  width: 100%;
 }
 
 .auth-button:hover {

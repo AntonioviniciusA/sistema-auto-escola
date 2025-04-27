@@ -4,7 +4,7 @@ const authenticateToken = (req, res, next) => {
   const token = req.header('Authorization')?.split(' ')[1]; // Extrai o token do "Bearer <token>"
 
   if (!token) {
-    return res.status(403).send('Access Denied');
+    return res.status(401).send('Token missing. Please log out and log back in.');
   }
 
   try {

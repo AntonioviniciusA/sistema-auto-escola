@@ -1,7 +1,10 @@
 // routes/alunoRoutes.js
+const mongoose = require("mongoose");
 const express = require("express");
 const Aluno = require("../models/AlunosModels.js");
 const Instrutor = require("../models/instrutoresModels");
+const Aula = require("../models/aulaModels.js");
+const Pagamento = require("../models/pagamentoModels");
 const router = express.Router();
 
 // Criar aluno
@@ -34,20 +37,39 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "Erro ao buscar instrutores" });
   }
 });
-// Rota para obter um aluno pelo codehash
-router.get("/api/alunos/:codehash", async (req, res) => {
+
+// Rota para obter um aluno pelo id
+router.get("/:_id", async (req, res) => {
   try {
-    const { codehash } = req.params;
-    const aluno = await Aluno.findOne({ codehash });
+    const { _id } = req.params;
+
+    // Verifica se o ID é válido
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+      return res.status(400).json({ message: "ID inválido" });
+    }
+
+    // Busca o aluno
+    const aluno = await Aluno.findById(_id);
+    // console.log(aluno);
+    // Se o aluno não for encontrado, retorna erro
     if (!aluno) {
       return res.status(404).json({ message: "Aluno não encontrado" });
     }
-    res.json(aluno);
+
+    // Busca o instrutor associado ao aluno
+    const instrutor = await Instrutor.findById(aluno.instrutor);
+
+    // Retorna o aluno com o nome do instrutor
+    return res.json({
+      ...aluno.toObject(),
+      instrutorNome: instrutor ? instrutor.usuario : "Desconhecido", // Verifica se o instrutor existe
+    });
   } catch (error) {
     res.status(500).json({ message: "Erro ao buscar aluno", error });
   }
 });
-router.put("/api/alunos/:id", async (req, res) => {
+
+router.put("/:id", async (req, res) => {
   // atualiza o aluno editado
   try {
     const { id } = req.params;
@@ -66,6 +88,28 @@ router.put("/api/alunos/:id", async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: "Erro ao atualizar aluno", error });
+  }
+});
+// deleta o aluno
+router.delete("/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Deleta o aluno pelo id
+    const alunoDeletado = await Aluno.findByIdAndDelete(id);
+    if (!alunoDeletado) {
+      return res.status(404).json({ message: "Aluno não encontrado" });
+    }
+
+    // Deleta todas as aulas associadas ao aluno
+    await Aula.deleteMany({ aluno: id });
+
+    // Deleta todos os pagamentos associados ao aluno
+    await Pagamento.deleteMany({ aluno: id });
+
+    res.json({ message: "Aluno e relacionados deletados com sucesso!" });
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao deletar aluno", error });
   }
 });
 

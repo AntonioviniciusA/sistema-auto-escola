@@ -1,0 +1,151 @@
+
+  /* Typography */
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 2rem 0 1rem;
+  }
+  
+  /* Form styles */
+  .form-container {
+    background-color: var(--black);
+    border: 1px solid var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+ .form-container:hover {
+    border-color: var(--details);
+  }
+
+ .form-container:hover {
+    transform: translateY(-2px);
+  }
+  
+  .submit-button {
+    grid-column: 1 / -1;
+    background-color: var(--details );
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Vehicle list styles */
+  .vehicle-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .vehicle-item {
+    background-color: var(--black);
+    border: 1px solid var(--white);
+    padding: 1.25rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .vehicle-item:hover {
+    border-color: var(--details);
+  }
+
+  .vehicle-item:hover {
+    transform: translateY(-2px);
+  }
+  
+  .vehicle-item span {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  
+  /* Button styles */
+  .edit-button,
+  .delete-button {
+    padding: 15px 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .edit-button {
+    background-color: var(--details);
+    color: white;
+    margin-right: 15px;
+  }
+  
+  .delete-button {
+    background-color: var(--danger);
+    color: white;
+  }
+  
+  
+  @media (max-width: 640px) {
+    .container {
+      margin: 1rem auto;
+    }
+  
+    .form-container {
+      padding: 1.5rem;
+    }
+  
+    .vehicle-item {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+ 
+
+  /* Estilo do cabeçalho da tabela */
+.MuiTableCell-head {
+  background-color: #333; /* Cor de fundo escura */
+  color: white; /* Texto branco */
+}
+
+/* Estilo do corpo da tabela */
+.MuiTableBody-root {
+  background-color: #222; /* Cor de fundo escura para as linhas */
+}
+
+/* Estilo para as células */
+.MuiTableCell-root {
+  color: white; /* Texto branco */
+}
+
+/* Estilo para os botões dentro da tabela */
+.MuiButton-root {
+  color: white; /* Cor do texto do botão */
+}
+
+/* Ajustando os botões "Editar" e "Deletar" */
+.MuiButton-outlined {
+  border-color: #3f51b5; /* Cor do botão Editar */
+}
+
+.MuiButton-outlined.MuiButton-colorError {
+  border-color: #f44336; /* Cor do botão Deletar */
+}

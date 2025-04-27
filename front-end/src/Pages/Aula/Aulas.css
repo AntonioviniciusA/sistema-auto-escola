@@ -1,0 +1,135 @@
+
+.btn-schedule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 15%;
+  height: 40px;
+  font-size: 17px;
+}
+
+.appointment-list {
+  height: auto;
+  overflow-y: auto;
+  border-radius: 8px;
+  margin-top: 2%;
+  background-color: #0a0a0a;
+  color: var(--white);
+  padding: 1rem;
+}
+
+.headerappoiment-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* background-color: blanchedalmond; */
+}
+.btn-concluir-aula {
+  width: 50%;
+  font-size: 15px;
+}
+
+.bottomappoiment-item {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.bottomappoiment-item button {
+  width: 50%;
+}
+
+.appointment-item {
+  width: 100%;
+  max-width: 250px;
+  border: none;
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 15px;
+  border: 1px solid var(--white);
+  box-shadow: 0 0 2px rgba(156, 156, 156, 0.24),
+    0 2px 4px rgba(221, 221, 221, 0.384);
+  background-color: var(--black);
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.appointment-link {
+  text-decoration: none;
+  color: #cacaca;
+}
+
+.appointment-item:hover {
+  transform: translateY(-4px);
+}
+
+.container-filtered {
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3%;
+}
+
+
+
+.header-aulas{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.position-search-filter-aula{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.position-search-filter-aula .btn-print{
+  width: 4%;
+}
+
+.ctn-pay-aula{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 0.5rem;
+  height: 100px;
+}
+
+.btn-print-aula{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 15%;
+  height: 40px;
+  font-size: 17px;
+}
+
+@media screen and (max-width: 780px) {
+ 
+.container-filtered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15%;
+}
+
+.ctn-pay-aula{
+  margin-top: 30px;
+  width: 100%;
+  height: 50px;
+}
+
+.not-pay{
+  width: 329px;
+  height: 50px;
+  }
+}
+

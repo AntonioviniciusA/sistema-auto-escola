@@ -7,9 +7,12 @@ const ModalConcluirAula = ({ isOpen, onClose, onConfirm, aulaSelecionada }) => {
 
   const handleConfirm = async () => {
     try {
-      await axios.put(`https://sistemaautoescola.onrender.com/api/aula/${aulaSelecionada._id}`, {
-        status: "Concluída",
-      });
+      await axios.put(
+        `https://sistemaautoescola.onrender.com/api/aula/status/${aulaSelecionada._id}`,
+        {
+          status: "Concluída",
+        }
+      );
       onConfirm(); // Atualiza a lista de aulas
       onClose();
     } catch (error) {

@@ -1,0 +1,146 @@
+.container-bg-aula{
+  padding: 10px;
+  background-color: var(--black);
+  border-radius: 20px;
+  height:590px;
+  color: var(--white);
+}
+
+
+/* Tabela */
+.MuiTableCell-root {
+  color: white; /* Deixa o texto das células branco */
+}
+
+/* Título das colunas */
+.MuiTableCell-head {
+  background-color: #333; /* Cor de fundo escura para o cabeçalho */
+  color: white; /* Deixa o texto branco */
+}
+
+
+
+/* Ajustando o tamanho da célula da coluna Detalhes */
+.MuiTableCell-root:nth-child(6) {
+  width: 100px; /* Tamanho reduzido da coluna Detalhes */
+}
+
+/* Cores de fundo para o corpo da tabela */
+.MuiTableBody-root {
+  background-color: #222; /* Cor de fundo escura para o corpo da tabela */
+}
+
+/* Estilo para as linhas da tabela */
+.MuiTableRow-root {
+  background-color: #333; /* Cor de fundo escura para cada linha */
+}
+
+/* Hover nas linhas */
+.MuiTableRow-root:hover {
+  background-color: #444; /* Cor de fundo mais clara quando passa o mouse */
+}
+/* Estilo do botão de detalhes */
+.MuiButton-root {
+  width: 100%;
+  color: var(--white) !important;
+  box-shadow: none; 
+}
+
+
+.MuiButton-root:hover {
+  background-color: transparent; 
+  color: var(--details);
+}
+
+
+.header-btn-print{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+  .btn-print{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 40px;
+    font-size: 17px;
+  }
+
+  .pagination-no-print{
+    display: none;
+  }
+
+  .btn-warning-print{
+    display: none;
+  }
+
+
+  @media (min-width: 1365px) and (max-width: 1540px) {
+
+    .btn-print{
+      width: 15%;
+    }
+
+
+  }
+
+  @media (max-width: 780px){
+
+
+    .btn-print{
+      display: none;
+    }
+
+    .btn-print{
+      margin-bottom: 1%;
+      width: 45%;
+      font-size: 16px;
+    }
+    .header-btn-print{
+      justify-content: center;
+      margin-bottom: 5px;
+    }
+
+    .pagination-no-print{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .container-bg-aula{
+      height: 500px;
+    }
+
+    .btn-warning-print{
+      display: block;
+      width: 80%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000000ad;
+      border: 1px solid red;
+      color: rgb(204, 33, 33);
+      padding: 1%;
+      border-radius: 0.5rem;
+      gap: 10px;
+      transition: 0.3s;
+      margin-bottom: 5px;
+    }
+  
+    .btn-warning-print:hover{
+      background: rgb(204, 33, 33);
+      border: 1px solid rgb(204, 33, 33);
+      color: white;
+      padding: 1%;
+      border-radius: 0.5rem;
+      gap: 10px;
+    }
+
+  }

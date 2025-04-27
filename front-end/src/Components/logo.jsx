@@ -1,15 +1,14 @@
-import React  from "react";
+import React from "react";
 import logo from "../assets/logo.png";
 
-
 const logo = () => {
-return (
+  return (
     <div className="logo-container">
-    <div className="logo-placeholder">
-      <img src={logo} alt="logo" />
+      <div className="logo-placeholder">
+        <img loading="lazy" src={logo} alt="logo" />
+      </div>
     </div>
-</div>
-);
-}
+  );
+};
 
 export default logo;

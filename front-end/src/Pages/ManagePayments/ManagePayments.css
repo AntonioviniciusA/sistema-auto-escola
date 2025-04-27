@@ -1,0 +1,94 @@
+.manage-payments {
+  
+  color: white; /* Set font color to white */
+}
+
+.Manage-payments-form{
+  background-color: var(--black);
+  border: 1px solid var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.Manage-payments-form:hover {
+  border-color: var(--details);
+}
+
+.payments-list {
+  border-color: var(--details);
+}
+
+.manage-payments h2,
+.manage-payments h3 {
+  color: white; /* Ensure headings are also white */
+}
+
+.manage-payments label {
+  color: white; /* Set label color to white */
+}
+
+input,
+select {
+  color: white; /* Keep input text color black for readability */
+}
+
+.manage-payments button {
+  background-color: var(--details); /* Example button color */
+  color: white; /* Button text color */
+}
+
+.payments-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+} 
+
+.payment-item {
+  background: var(--black);
+  border: 1px solid var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;  
+}
+.payment-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.payment-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.payments-table {
+  width: 100%;
+  height: 4px;
+  background: var(--black);
+}
+
+.payment-item.pendente {
+  background: #fbbf24;
+}
+
+.payment-item.pago {
+  background: #34d399;
+}
+
+.payment-item.vencido {
+  background: #ef4444;
+}
+
+.payment-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
+  margin-top: 20px;
+}

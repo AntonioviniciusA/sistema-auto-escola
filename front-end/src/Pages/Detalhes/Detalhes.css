@@ -1,0 +1,90 @@
+.container-grid{
+  display: grid;
+  padding: 1%;
+  height: 30vh;
+  gap: 2%;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.ctn-details-bg{
+  background:var(--black);
+  border-radius: 20px;
+  height:320px;
+  color: var(--white);
+  padding: 0 15px 0 15px;
+  margin: 0;
+}
+
+.header-details{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.ctn-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.size-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  width: 60px;
+  height: auto;
+  padding: 10px;
+}
+.input-border-date{
+  padding: 5px;
+  margin-top: 8px;
+  font-size: 18px;
+  border:none;
+  background-color: transparent;
+  width: fit-content;
+  color: var(--white);
+}
+
+.input-border-date::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Inverte a cor para branco */
+}
+
+
+@media screen and (max-width: 780px) {
+ 
+  .header-details{
+    width: 90%;
+  }
+
+  .ctn-buttons{
+    left: 2%;
+  }
+
+  .card-data{
+    width: 100%;
+  }
+
+  .ctn-details-bg{
+    height: 100vh;
+    margin-bottom: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+.container-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+}

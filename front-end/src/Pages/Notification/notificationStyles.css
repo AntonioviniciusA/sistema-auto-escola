@@ -1,0 +1,30 @@
+/* notificationStyles.css */
+.notification-container {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .notification-input,
+  .notification-textarea,
+  .notification-select {
+    width: 80%;
+    padding: 5px;
+    margin: 10px 0;
+  }
+  
+  .notification-textarea {
+    height: 100px;
+  }
+  
+  .notification-btn {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .notification-select {
+    padding: 5px;
+    margin-top: 10px;
+  }
+  

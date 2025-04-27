@@ -66,7 +66,7 @@ router.post("/login", async (req, res) => {
     if (!isMatch) return res.status(401).json({ message: "Senha incorreta." });
 
     const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, {
-      expiresIn: "1h",
+      expiresIn: "8h",
     });
 
     res.cookie("token", token, {
@@ -108,11 +108,49 @@ router.get("/getall", async (req, res) => {
   try {
     const usuarios = await User.find({}, "usuario email levelAuth"); // Busca usuário, email e levelAuth
     res.json(usuarios);
-    console.log(usuarios);
+    // console.log(usuarios);
   } catch (error) {
     console.error("Erro ao buscar usuários:", error);
     res.status(500).json({ message: "Erro ao buscar usuários" });
   }
 });
 
+router.put("/change-password/:id", authenticateToken, async (req, res) => {
+  const { password } = req.body;
+
+  if (!password || password.length < 6) {
+    return res
+      .status(400)
+      .json({ message: "A nova senha deve ter pelo menos 6 caracteres." });
+  }
+
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ message: "Usuário não encontrado." });
+    }
+
+    user.password = password; // Apenas atribui a nova senha
+    savedUser = await user.save(); // Aqui o middleware pre("save") será acionado
+
+    res.status(200).json({ message: "Senha alterada com sucesso!" });
+  } catch (error) {
+    console.error("Erro ao alterar a senha:", error);
+    res.status(500).json({ message: "Erro ao alterar a senha." });
+  }
+});
+
+router.delete("/:id", authenticateToken, async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findByIdAndDelete(userId);
+    if (!user) {
+      return res.status(404).json({ message: "Usuário não encontrado." });
+    }
+    res.status(200).json({ message: "Usuário deletado com sucesso!" });
+  } catch (error) {
+    console.error("Erro ao deletar usuário:", error);
+    res.status(500).json({ message: "Erro ao deletar usuário." });
+  }
+});
 module.exports = router;

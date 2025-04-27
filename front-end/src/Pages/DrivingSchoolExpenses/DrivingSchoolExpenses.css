@@ -1,0 +1,97 @@
+form.formManageExpenses {
+  background: var(--black);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--white);
+}
+
+form.formManageExpenses:hover {
+  border-color: var(--details);
+}
+
+form.formManageExpenses:hover {
+  transform: translateY(-2px);
+}
+
+form.formManageExpenses::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+input.ManageExpenses {
+  padding: 1rem;
+  border: 1px solid var(--white);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--black);
+}
+
+input.ManageExpenses:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+  color: var(--white);
+}
+
+input.ManageExpenses::placeholder {
+  color: #ffffff;
+}
+
+button[type="submit"] {
+  grid-column: 1 / -1;
+}
+
+
+.Container-Manage-Expenses {
+  margin: 2%;
+}
+
+
+/* Tabela */
+.MuiTableCell-root {
+  color: white !important; /* Deixa o texto das células branco */
+}
+
+/* Título das colunas */
+.MuiTableCell-head {
+  background-color: #333; /* Cor de fundo escura para o cabeçalho */
+  color: white; /* Deixa o texto branco */
+}
+
+/* Estilo do botão de deletar */
+.MuiButton-root {
+  width: 100%; /* Faz o botão ocupar todo o espaço da célula */
+  background-color: yellow; /* Cor de fundo amarela para o botão */
+  color: black; /* Cor do texto do botão */
+}
+
+/* Ajustando o tamanho da célula da coluna Ações */
+.MuiTableCell-root:nth-child(4) {
+  width: 80px; /* Tamanho reduzido da coluna Ações */
+}
+
+/* Cores de fundo para o corpo da tabela */
+.MuiTableBody-root {
+  background-color: #222; /* Cor de fundo escura para o corpo da tabela */
+}
+
+/* Estilo para as linhas da tabela */
+.MuiTableRow-root {
+  background-color: #000000; /* Cor de fundo escura para cada linha */
+}
+
+/* Hover nas linhas */
+.MuiTableRow-root:hover {
+  background-color: #444; /* Cor de fundo mais clara quando passa o mouse */
+}

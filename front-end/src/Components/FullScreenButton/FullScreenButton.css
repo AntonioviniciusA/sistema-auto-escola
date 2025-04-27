@@ -1,0 +1,14 @@
+.fullscreen-btn {
+  width: 5%;
+  position: relative;
+  top: 10px;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.fullscreen-btn svg {
+  color: var(--details);
+}

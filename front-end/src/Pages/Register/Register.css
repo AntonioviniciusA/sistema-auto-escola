@@ -1,0 +1,160 @@
+/*Container pai*/
+.container-register {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+/*Container esquerdo com Imagem*/
+.left-register {
+  width: 100%;
+  max-width: 350px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../../assets/WavesWhite.png) center, #131313;
+  background-size: cover;
+  border-radius: 20px 0 0 20px;
+  border-left: solid 3px var(--white);
+}
+/*Container com texto de Boas Vindas*/
+.ctn-messages {
+  width: 80%;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 20%;
+  color: white;
+}
+
+
+
+
+/*Container do lado direito - Para se registrar*/
+.form-register {
+  width: 100%;
+  max-width: 600px;
+  height: 480px;
+  background-color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 0 20px 20px 0;
+  
+}
+
+/*Titulo de Registrar Conta*/
+.header-title{
+  margin: 0;
+  padding: 0 0 25px;
+}
+
+/*Configurações dos inputs*/
+.container-inputs {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 80%; 
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 16px;
+}
+
+.input-container input,
+.input-container select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 2px #cccccc;
+  background-color: var(--black);
+  color: white;
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.input-container input,
+.input-container select {
+  padding-left: 30px;
+  appearance: none;
+  cursor: pointer;
+}
+
+
+/*Botão de Registro*/
+.btn-register {
+  width: 40%; 
+  background-color: #facb23;
+  font-size: 16px;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 400;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+
+/*Responsividade*/
+@media (max-width: 780px){
+  .left-register{
+    display: none;
+  }
+
+  .form-register {
+    width: 100%;
+    max-width: 350px;
+    height: 400px;
+    border-radius: 20px 20px 20px 20px;
+    background: url('../../assets/WavesWhite.png') bottom no-repeat var(--black);
+    border-left: solid 3px var(--white);
+  }
+
+  .header-title{
+    margin: 0;
+    padding: 0;
+  }
+
+  .container-inputs {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .input-container input,
+  .input-container select {
+    margin: 0.2px 0;
+}
+
+  
+
+
+
+
+
+}

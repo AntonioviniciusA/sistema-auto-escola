@@ -1,29 +1,44 @@
 :root {
   /* Cores Geral: */
   --white: #fff;
+  --black: black;
+  --red:red;
   --details: #facb23;
   --inputbgc: #212121;
   --bckgroundgeral: #212121;
   --cardsbackground: #1f1f1f;
+  --cinzaclaro: #ccc;
 
   /* Cores Página Alunos: */
   --tb-border: #ccc;
   --text-color: #ccc;
-  --tb-titles-bgc: rgba(68, 68, 68, 0.411);
+  --tb-titles-bgc: #44444469;
   --tb-hover-line: #202020;
-  --tb-line: rgba(0, 0, 0, 0.411);
+  --tb-line: #00000069;
 
   /* Cores Página de login: */
   --cnt-login-bgc: #292929;
   --cnt-age-bgc: #292929;
-  --cnt-login-shadow: rgba(0, 0, 0, 0.1);
+  --cnt-login-shadow: #0000001a;
+
+  --background-color: #f3f4f6;
+  --card-background: #ffffff;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
 }
 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1f1f1f;
+  background-color: #0a0a0a;
+}
+
+
+select{
+  background-color: #0a0a0a;
 }
 
 .container {
@@ -45,18 +60,16 @@ body {
 
 .main-content {
   flex: 1;
-  padding: 10px;
+  padding-right: 1%;
+  margin-left: 1%;
+
   background-color: #0a0a0a;
-  height: 90vh;
-  border-radius: 1.2rem;
-  margin: 2%;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  height: 100vh;
   overflow-y: auto;
 }
 
 .main-content h1 {
   font-size: 28px;
-
   margin-bottom: 20px;
   text-align: center;
   color: var(--white);
@@ -64,16 +77,16 @@ body {
 
 .container-bg {
   padding: 10px;
-  background-color: #212121;
+  background-color: var(--black);
   border-radius: 20px;
   height: 98%;
   color: var(--white);
 }
 
 /* Posição do botão de Filtro ao lado do input de Pesquisa */
-.position-search-filter{
+.position-search-filter {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 8px;
 }
@@ -81,7 +94,9 @@ body {
 /* scrollbar custom */
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 5px;
+  margin: 0;
+  padding: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -90,7 +105,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--details);
-  border-radius: 10px;
+  border-radius: 100px;
 }
 
 .sidebar-pc {
@@ -99,6 +114,22 @@ body {
 .sidebar-mob {
   display: none;
 }
+
+.header-aulas {
+  display: block;
+}
+
+.header-mobile {
+  display: none;
+}
+
+.btn-cadrastro{
+  display: block;
+}
+.btn-cadastro-mobile{
+  display: none;
+}
+
 
 @media (max-width: 780px) {
   .main-content {
@@ -110,6 +141,23 @@ body {
     margin: 0;
   }
 
+  /* Reponsividade para a Barra de pesquisa*/
+  .header-aulas {
+    display: none !important;
+  }
+
+  .header-mobile {
+    display: block !important;
+  }
+
+  .btn-cadrastro{
+    display: none !important;
+  }
+  .btn-cadastro-mobile{
+    display: block !important;
+  }
+
+  /* ----------------- */
   .sidebar-pc {
     display: none;
   }
@@ -117,7 +165,11 @@ body {
     display: block;
   }
 
-  /* Reponsividade para a Barra de pesquisa*/
+  .fullscreen-btn{
+    display: none;
+  }
+
+  /* Reponsividade Mobile*/
   .ctn-position-search {
     margin: 0 auto;
   }
@@ -127,10 +179,10 @@ body {
   .cadastro-aluno .header {
     margin-bottom: 25px;
   }
-  .cadastrar-btn {
-    margin: 0 auto;
-    margin-top: 17px;
-    width: 40%;
+  .cadastrar-btn,
+  .btn-filter {
+    width: auto;
+    margin: 0;
   }
 
   .btn-schedule {
@@ -138,21 +190,55 @@ body {
     width: 40%;
   }
 
-  .position-search-filter{
+  .position-search-filter {
+    display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    align-items: center;
+    gap: 15px;
+  }
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    gap: 10px;
   }
 
-  .btn-filter{
-    margin-top: 8px;
+  .cadastrar-btn,
+  .btn-filter,
+  .btn-schedule {
+    width: auto;
+    margin: 0;
+    font-size: 15px;
   }
 
-  .dropdown-container{
+  .btn-container .btn-print{
+    width: 20%;
+    margin: 0;
+  }
+
+  .dropdown-container {
     left: 50%;
     transform: translateX(-50%);
   }
 
+  .cadastro-aluno .header {
+    margin-bottom: 40px;
+  }
+
+  
+
   body {
     overflow-x: hidden;
   }
+
+  .header .position-search-filter{
+    margin-top: 40px;
+  }
+
+
+
+  
+
+
 }
