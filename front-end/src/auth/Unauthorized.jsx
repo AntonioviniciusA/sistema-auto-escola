@@ -7,7 +7,7 @@ const Unauthorized = () => {
     <div className="unauthorized-container">
       <h1>403 - Acesso Negado</h1>
       <p>Você não tem permissão para acessar esta página.</p>
-      <Link to="/">Voltar para a página inicial</Link>
+      {/* <Link to="/">Voltar para a página inicial</Link> */}
     </div>
   );
 };

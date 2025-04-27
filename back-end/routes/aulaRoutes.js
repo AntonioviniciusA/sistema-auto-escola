@@ -7,8 +7,9 @@ const Aula = require("../models/aulaModels"); //Ensure Aula model is imported
 const Veiculo = require("../models/veiculoModels");
 const authMiddleware = require("../middleware/authJWT.js");
 
+
 // Rota para criar uma nova aula
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware,  async (req, res) => {
   const { instructor, datetime, duration, student, veiculo } = req.body;
 
   try {
@@ -35,7 +36,7 @@ router.post("/", async (req, res) => {
 
 // Listar aulas
 // Rota para listar as aulas com instrutores e aluno detalhado
-router.get("/", async (req, res) => {
+router.get("/", authMiddleware, async (req, res) => {
   const aulas = await Aula.find();
   try {
     // Busca do instrutor e aluno separadamente
@@ -63,7 +64,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:_id", async (req, res) => {
+router.get("/:_id", authMiddleware, async (req, res) => {
   try {
     const { _id } = req.params;
 
@@ -82,7 +83,7 @@ router.get("/:_id", async (req, res) => {
   }
 });
 
-router.put("/attclass/:_id", async (req, res) => {
+router.put("/attclass/:_id", authMiddleware, async (req, res) => {
   try {
     const { _id } = req.params;
     const { data, tipo, instrutor, aluno, status } = req.body;
@@ -110,7 +111,7 @@ router.put("/attclass/:_id", async (req, res) => {
   }
 });
 // Rota para atualizar o status da aula
-router.put("/status/:_id", async (req, res) => {
+router.put("/status/:_id", authMiddleware, async (req, res) => {
   try {
     const { _id } = req.params;
     const { status } = req.body;
@@ -133,7 +134,7 @@ router.put("/status/:_id", async (req, res) => {
 });
 
 // Rota para buscar aulas pelo ID do aluno
-router.get("/aluno/:_id", async (req, res) => {
+router.get("/aluno/:_id", authMiddleware, async (req, res) => {
   try {
     const { _id } = req.params;
 
@@ -156,7 +157,7 @@ router.get("/aluno/:_id", async (req, res) => {
 });
 
 // Rota para buscar aulas pelo ID do instrutor
-router.get("/instrutor/:_id", async (req, res) => {
+router.get("/instrutor/:_id", authMiddleware, async (req, res) => {
   try {
     const { _id } = req.params;
 
@@ -180,7 +181,7 @@ router.get("/instrutor/:_id", async (req, res) => {
 });
 
 // Rota para deletar uma aula
-router.delete("/:_id", async (req, res) => {
+router.delete("/:_id", authMiddleware, async (req, res) => {
   try {
     const { _id } = req.params;
     const deletedAula = await Aula.findByIdAndDelete(_id);

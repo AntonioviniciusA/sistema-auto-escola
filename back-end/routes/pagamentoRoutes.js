@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Pagamento = require("../models/pagamentoModels");
+const authenticateToken = require("../middleware/authJWT");
+
 
 // Criar um novo registro de pagamento
 router.post("/", async (req, res) => {
@@ -18,7 +20,7 @@ router.post("/", async (req, res) => {
 });
 
 // Recuperar todos os registros de pagamento e popular o campo alunos
-router.get("/", async (req, res) => {
+router.get("/", authenticateToken, async (req, res) => {
   try {
     const pagamentos = await Pagamento.find().populate("aluno"); // Popula os dados dos alunos
 
@@ -42,7 +44,7 @@ router.get("/", async (req, res) => {
 });
 
 // Recuperar um registro de pagamento específico por ID
-router.get("/:id", async (req, res) => {
+router.get("/:id", authenticateToken, async (req, res) => {
   try {
     const pagamento = await Pagamento.findById(req.params.id);
     if (!pagamento) {
@@ -55,7 +57,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // Atualizar um registro de pagamento específico por ID
-router.put("/:id", async (req, res) => {
+router.put("/:id", authenticateToken, async (req, res) => {
   try {
     const pagamento = await Pagamento.findByIdAndUpdate(
       req.params.id,
@@ -71,7 +73,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 // Atualizar um registro de pagamento específico por ID
-router.put("/pago/:id", async (req, res) => {
+router.put("/pago/:id", authenticateToken, async (req, res) => {
   try {
     // 1. Validação dos dados de entrada
     const updates = Object.keys(req.body);
@@ -173,7 +175,7 @@ router.put("/pago/:id", async (req, res) => {
   }
 });
 // Excluir um registro de pagamento específico por ID
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticateToken, async (req, res) => {
   try {
     const pagamento = await Pagamento.findByIdAndDelete(req.params.id);
     if (!pagamento) {
@@ -185,7 +187,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.get("/aluno/:studentId", async (req, res) => {
+router.get("/aluno/:studentId", authenticateToken, async (req, res) => {
   try {
     const studentId = req.params.studentId;
     const pagamentos = await Pagamento.find({ aluno: studentId });
@@ -195,7 +197,7 @@ router.get("/aluno/:studentId", async (req, res) => {
   }
 });
 // Obter dados para gráficos
-router.get("/graficos", async (req, res) => {
+router.get("/graficos", authenticateToken, async (req, res) => {
   try {
     const pagamentos = await Pagamento.find({ aluno: req.params.id });
 

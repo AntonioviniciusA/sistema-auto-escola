@@ -108,5 +108,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT;
 app.listen(PORT, async () => {
   await conectarAoBanco();
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Servidor rodando na bomba ${PORT}`);
 });

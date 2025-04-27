@@ -5,10 +5,11 @@ const Aluno = require("../models/AlunosModels.js");
 const Instrutor = require("../models/instrutoresModels");
 const Aula = require("../models/aulaModels.js");
 const Pagamento = require("../models/pagamentoModels");
+const authenticateToken = require("../middleware/authJWT");
 const router = express.Router();
 
 // Criar aluno
-router.post("/", async (req, res) => {
+router.post("/", authenticateToken, async (req, res) => {
   try {
     const aluno = new Aluno(req.body);
     await aluno.save();
@@ -18,7 +19,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/", authenticateToken, async (req, res) => {
   const alunos = await Aluno.find();
   try {
     const alunosComInstrutor = await Promise.all(

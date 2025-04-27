@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Veiculo = require("../models/veiculoModels");
 const Aula = require("../models/aulaModels");
+const authenticateToken = require("../middleware/authJWT");
+
 // Create a new vehicle record
 router.post("/", async (req, res) => {
   try {
@@ -14,7 +16,7 @@ router.post("/", async (req, res) => {
 });
 
 // Retrieve all vehicle records
-router.get("/", async (req, res) => {
+router.get("/", authenticateToken, async (req, res) => {
   try {
     const veiculos = await Veiculo.find();
     res.status(200).send(veiculos);
@@ -24,7 +26,7 @@ router.get("/", async (req, res) => {
 });
 
 // Retrieve a specific vehicle record by ID
-router.get("/:id", async (req, res) => {
+router.get("/:id", authenticateToken, async (req, res) => {
   try {
     const veiculo = await Veiculo.findById(req.params.id);
     if (!veiculo) {
@@ -37,7 +39,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // Update a specific vehicle record by ID
-router.put("/:id", async (req, res) => {
+router.put("/:id", authenticateToken, async (req, res) => {
   try {
     const veiculo = await Veiculo.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -53,7 +55,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete a specific vehicle record by ID
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticateToken, async (req, res) => {
   try {
     const id = req.params.id;
     const veiculo = await Veiculo.findByIdAndDelete(id);

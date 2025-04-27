@@ -13,7 +13,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 // Rota de Registro
 router.post(
-  "/",
+  "/", authenticateToken,
   [
     body("usuario").notEmpty().withMessage("O campo usuário é obrigatório."),
     body("levelAuth")

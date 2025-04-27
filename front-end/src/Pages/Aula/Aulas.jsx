@@ -26,7 +26,13 @@ const Aulas = () => {
   useEffect(() => {
     const fetchAulas = async () => {
       try {
-        const response = await axios.get("https://sistemaautoescola.onrender.com/api/aula");
+        const response = await axios.get("http://localhost:3500/api/aula" ,
+           { 
+            headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
         setAulas(response.data);
       } catch (error) {
         console.error("Erro ao buscar aulas:", error);

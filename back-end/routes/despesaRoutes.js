@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Despesa = require("../models/despesaModels");
+const authenticateToken = require("../middleware/authJWT");
+
 
 // Create a new despesa record
 router.post("/", async (req, res) => {
@@ -26,7 +28,7 @@ router.post("/", async (req, res) => {
 });
 
 // Update a specific despesa record by ID
-router.put("/:id", async (req, res) => {
+router.put("/:id",authenticateToken, async (req, res) => {
   try {
     const despesa = await Despesa.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -54,7 +56,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Get all despesas
-router.get("/", async (req, res) => {
+router.get("/", authenticateToken, async (req, res) => {
   try {
     const despesas = await Despesa.find({});
 
@@ -74,7 +76,7 @@ router.get("/", async (req, res) => {
     res.status(500).send(error);
   }
 });
-router.get("/graficos", async (req, res) => {
+router.get("/graficos", authenticateToken, async (req, res) => {
   try {
     const despesas = await Despesa.find({}).sort({ data: 1 });
 
@@ -153,7 +155,7 @@ router.get("/graficos", async (req, res) => {
   }
 });
 // Route to delete a despesa by ID
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticateToken, async (req, res) => {
   try {
     const deletedDespesa = await Despesa.findByIdAndDelete(req.params.id);
 

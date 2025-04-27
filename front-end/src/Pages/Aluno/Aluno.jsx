@@ -30,7 +30,12 @@ const Aluno = () => {
     const fetchAlunos = async () => {
       try {
         const response = await axios.get(
-          "https://sistemaautoescola.onrender.com/api/alunos"
+          "http://localhost:3500/api/alunos",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
         );
         setAlunos(response.data);
       } catch (error) {

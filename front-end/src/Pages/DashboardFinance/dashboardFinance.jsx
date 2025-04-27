@@ -64,7 +64,7 @@ const DashboardFinance = () => {
         await Promise.all(
           pendentesVencidos.map((pagamento) =>
             axios.put(
-              `https://sistemaautoescola.onrender.com{pagamento.id}`,
+              `http://localhost:3500{pagamento.id}`,
               {
                 ...pagamento,
                 status: "Vencido",
@@ -82,10 +82,15 @@ const DashboardFinance = () => {
   const atualizarParaPago = async (id) => {
     try {
       await axios.put(
-        `https://sistemaautoescola.onrender.com/api/pagamentos/${id}`,
+        `http://localhost:3500/api/pagamentos/${id}`,
         {
           status: "Pago",
-          dataPagamento: hoje.toISOString().split("T")[0],
+          dataPagamento: hoje.toISOString().split("T")[0]
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
         }
       );
       buscarPagamentos();
@@ -97,7 +102,12 @@ const DashboardFinance = () => {
   const buscarPagamentos = async () => {
     try {
       const resposta = await axios.get(
-        "https://sistemaautoescola.onrender.com/api/pagamentos"
+        "http://localhost:3500/api/pagamentos",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       );
       const pagamentos = resposta.data;
 
