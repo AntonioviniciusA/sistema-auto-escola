@@ -26,7 +26,7 @@ const Aulas = () => {
   useEffect(() => {
     const fetchAulas = async () => {
       try {
-        const response = await axios.get("http://localhost:3500/api/aula" ,
+        const response = await axios.get("https://sistemaautoescola.onrender.com/api/aula" ,
            { 
             headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

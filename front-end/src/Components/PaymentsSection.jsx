@@ -158,14 +158,24 @@ function Payments({ id }) {
       try {
         // Buscar pagamentos do aluno
         const responsePayments = await axios.get(
-          `https://sistemaautoescola.onrender.com/api/pagamentos/aluno/${id}`
+          `https://sistemaautoescola.onrender.com/api/pagamentos/aluno/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
         );
         setPayments(responsePayments.data);
 
-        // Buscar dados do aluno
-        const responseAluno = await axios.get(
-          `https://sistemaautoescola.onrender.com/api/alunos/${id}`
-        );
+       // Buscar dados do aluno
+       const responseAluno = await axios.get(
+       `https://sistemaautoescola.onrender.com/api/alunos/${id}`,
+         {
+            headers: {
+           Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+           }
+         );
         setAluno(responseAluno.data);
       } catch (error) {
         console.error("Erro ao buscar dados:", error);

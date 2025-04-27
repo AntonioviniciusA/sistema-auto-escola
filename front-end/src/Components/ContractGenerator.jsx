@@ -144,7 +144,7 @@ function GerarContrato({ aluno, id }) {
     const fetchPayments = async () => {
       try {
         const response = await axios.get(
-          `https://sistemaautoescola.onrender.comcola.onrender.com/api/pagamentos/aluno/${id}`
+          `https://sistemaautoescola.onrender.com/api/pagamentos/aluno/${id}`
         );
         const total = response.data
           .flat()

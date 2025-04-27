@@ -73,7 +73,10 @@ const RegisterForm = () => {
       const userResponse = await axios.post(
         "https://sistemaautoescola.onrender.com/api/user",
         formData,
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { "Content-Type": "application/json" ,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }
+      }
       );
       toast.success("Usuário registrado com sucesso!");
 
